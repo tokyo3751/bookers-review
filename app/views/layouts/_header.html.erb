@@ -19,10 +19,16 @@
               </li>
              <% else %>
               <li>
-                <%= link_to "新規登録", new_user_registration_path %>
+                <div class="nav-link"><%= link_to "Home", root_path, class: "text-light" %></div>
               </li>
               <li>
-                <%= link_to "ログイン", new_user_session_path %>
+                <div class="nav-link"><%= link_to "about", homes_about_path, class: "text-light" %></div>
+              </li>
+              <li>
+                <div class="nav-link"><%= link_to "Sign_up", new_user_registration_path, class: "text-light" %></div>
+              </li>
+              <li>
+                <div class="nav-link"><%= link_to "Log_in", new_user_session_path, class: "text-light" %></div>
               </li>
              <% end %>
             </ul>
