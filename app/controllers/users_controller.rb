@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def show
+    @books = Book.where(user_id: @user.id)
+    @user = User.find(params[:id])
+  end
+
   def edit
   end
 
