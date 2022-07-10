@@ -13,7 +13,7 @@
           <tr>
             <td><%= image_tag @user.get_image, size: "80x80" %></td>
             <td><%= link_to book.title, book_path(book) %></td>
-            <td><%= book.comment %></td>
+            <td><%= book.body %></td>
           </tr>
         <% end %>
       </table>
