@@ -19,8 +19,15 @@
             <% end %>
         </tr>
       </table>
-      <table>
+      <h2>Comment</h2>
+      <table class="table">
         <tbody>
+              <tr>
+                <th>プロフィール画像</th>
+                <th>名前</th>
+                <th>コメント</th>
+                <th></th>
+              </tr>
           <% @books.book_comments.each do |comment| %>
               <tr>
                 <td><%= image_tag comment.user.get_profile_image, size:"80x80" %></td>
@@ -37,7 +44,7 @@
       </table>
       <%= form_with(model:[@book, @book_comment], url: book_book_comments_path(@books.id),local: true) do |f| %>
         <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-100" %>
-        <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+        <%= f.submit "送信" %>
       <% end %>
     </div>
   </div>
