@@ -28,24 +28,14 @@
                 <th>コメント</th>
                 <th></th>
               </tr>
-          <% @books.book_comments.each do |comment| %>
-              <tr>
-                <td><%= image_tag comment.user.get_profile_image, size:"80x80" %></td>
-                <td><%= comment.user.name %></td>
-                <td><%= comment.comment %></td>
-                <td>
-                  <% if comment.user == current_user %>
-                   <%= link_to "Destroy", book_book_comment_path(comment.book,comment), method: :delete, class: "btn btn-sm btn-danger" %>
-                  <% end %>
-                </td>
-              </tr>
-          <% end %>
+              <div class="comment_index">
+                <%= render "book_comments/book_comments_index", books: @books %>
+              </div>
         </tbody>
       </table>
-      <%= form_with(model:[@book, @book_comment], url: book_book_comments_path(@books.id),local: true) do |f| %>
-        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-100" %>
-        <%= f.submit "送信" %>
-      <% end %>
+      <div id="comment_form">
+        <%= render "book_comments/form", {book: @book, book_comment: @book_comment, books: @books} %>
+      </div>
     </div>
   </div>
 </div>
