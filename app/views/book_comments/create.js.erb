@@ -1,1 +1,1 @@
-$("#comment_form").html("<%= j(render 'book_comments/form', book: @book ,book_comment: @book_comment, books: @books) %>")
+$("#book_comments").html("<%= j(render 'book_comments/index', books: @book) %>")
