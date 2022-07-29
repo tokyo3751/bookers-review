@@ -13,6 +13,9 @@
           </td>
           <td><%= link_to @books.title, book_path(@books) %></td>
           <td><%= @books.body %></td>
+          <td id="counter">
+            <%= render "book_comments/book_comments_counter", books: @books %>
+          </td>
             <% if @books.user == current_user %>
                <td><%= link_to "Edit", edit_book_path(@books), class: "btn btn-success btn-sm" %></td>
                <td><%= link_to "Destroy", book_path(@books), method: :delete, data: {confirm: "削除しますか？"},class: "btn btn-danger btn-sm" %></td>
@@ -20,20 +23,10 @@
         </tr>
       </table>
       <h2>Comment</h2>
-      <table class="table">
-        <tbody>
-              <tr>
-                <th>プロフィール画像</th>
-                <th>名前</th>
-                <th>コメント</th>
-                <th></th>
-              </tr>
-              <div id="book_comments">
-                <%= render "book_comments/index", books: @books %>
-              </div>
-        </tbody>
-      </table>
-        <%= form_with model:[@books, @book_comment], local: false do |f| %>
+        <div id="book_comments">
+          <%= render "book_comments/index", books: @books %>
+        </div>
+        <%= form_with(model:[@books, @book_comment], local: false) do |f| %>
           <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-100" %>
           <%= f.submit "送信" %>
         <% end %>
