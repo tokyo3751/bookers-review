@@ -1,0 +1,9 @@
+<h1>テスト</h1>
+<%= form_with model: @chat do |f| %>
+ <%= f.text_field :message %>
+ <%= f.hidden_field :room_id %>
+ <%= f.submit %>
+<% end %>
+<% @chats.each do |chat| %>
+ <%= chat.message %>
+<% end %>
