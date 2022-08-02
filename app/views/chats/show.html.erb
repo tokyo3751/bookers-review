@@ -1,9 +1,18 @@
-<h1>テスト</h1>
+<%= @user.name %>さんとのチャット
 <%= form_with model: @chat do |f| %>
  <%= f.text_field :message %>
  <%= f.hidden_field :room_id %>
  <%= f.submit %>
 <% end %>
-<% @chats.each do |chat| %>
- <%= chat.message %>
-<% end %>
+<table class="table mt-5">
+ <tr>
+  <th>image</th>
+  <th>comment</th>
+ </tr>
+ <% @chats.each do |chat| %>
+ <tr>
+  <td><%= image_tag chat.user.get_profile_image,size: "50x50" %></td>
+  <td><%= chat.message %></td>
+ </tr>
+  <% end %>
+</table>
