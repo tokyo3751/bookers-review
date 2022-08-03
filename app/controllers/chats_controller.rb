@@ -1,4 +1,5 @@
 class ChatsController < ApplicationController
+  before_action :reject_non_related, only: [:show]
   def show
     @user = User.find(params[:id])
     rooms = current_user.user_rooms.pluck(:room_id)
@@ -25,5 +26,13 @@ class ChatsController < ApplicationController
   private
   def chat_params
     params.require(:chat).permit(:message, :room_id)
+  end
+
+  def reject_non_related
+    user = User.find(params[:id])
+    unless current_user.following?(user) && user.following?(current_user)
+      flash[:notice] = "相互フォローしていないユーザーとはチャットできません。"
+      redirect_to user_path(user.id)
+    end
   end
 end
