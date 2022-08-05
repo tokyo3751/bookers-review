@@ -14,6 +14,8 @@ class UsersController < ApplicationController
     unless ViewCount.find_by(user_id: current_user.id, book_id: @book_detail.id)
       current_user.view_counts.create(book_id: @book_detail.id)
     end
+    @today_book = @books.created_today
+    @yesterday_book = @books.created_yesterday
   end
 
   def edit

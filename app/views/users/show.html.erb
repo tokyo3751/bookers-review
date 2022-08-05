@@ -22,6 +22,26 @@
           </tr>
         <% end %>
       </table>
+      <h2>投稿数の前日比・先週比</h2>
+      <table class="table">
+        <tr>
+          <th>今日の投稿数</th>
+          <th>前日の投稿数</th>
+          <th>前日比</th>
+        </tr>
+        <tr>
+          <td><%= @today_book.count %></td>
+          <td><%= @yesterday_book.count %></td>
+          <td>
+            <% if @yesterday_book.count == 0 %>
+             前日の投稿はありません
+            <% else %>
+             <% @the_day_before = @today_book.count / @yesterday_book.count.to_f %>
+             <%= (@the_day_before * 100).round %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
