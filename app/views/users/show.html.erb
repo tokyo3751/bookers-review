@@ -61,6 +61,27 @@
           </td>
         </tr>
       </table>
+      <h2>7日間分の投稿数</h2>
+      <table class="table table-hover">
+        <tr>
+          <th>6日前</th>
+          <th>5日前</th>
+          <th>4日前</th>
+          <th>3日前</th>
+          <th>2日前</th>
+          <th>1日前</th>
+          <th>今日</th>
+        </tr>
+        <tr>
+          <td><%= @books.created_6days_ago.count %></td>
+          <td><%= @books.created_5days_ago.count %></td>
+          <td><%= @books.created_4days_ago.count %></td>
+          <td><%= @books.created_3days_ago.count %></td>
+          <td><%= @books.created_2days_ago.count %></td>
+          <td><%= @yesterday_book.count %></td>
+          <td><%= @today_book.count %></td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
