@@ -22,6 +22,15 @@
           </tr>
         <% end %>
       </table>
+      <%= form_with url: user_search_path(@user), method: :get, local: false do |f| %>
+        <%= f.date_field :created_at %>
+        <%= f.submit "検索" %>
+      <% end %>
+      <div id="search_result">
+        <% if @search_book.present? %>
+         <%= render "search", search_book: @search_book %>
+        <% end %>
+      </div>
       <h2>投稿数の前日比・先週比</h2>
       <table class="table">
         <tr>
