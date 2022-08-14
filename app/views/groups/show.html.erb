@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <%= render "users/info", {user: current_user, book: @book} %>
+    <div class="col-md-8 offset-md-1">
+     <h1>Group Detail</h1>
+     <table class="table table-hover table-inverese">
+       <tr>
+         <td><%= image_tag @group.image, size: "80x80" %></td>
+         <td><%= @group.name %></td>
+         <td><%= @group.introduction %></td>
+         <td>
+           <% if @group.owner_id == current_user.id %>
+             <%= link_to "Edit", edit_group_path(@group), class: "btn btn-success btn-sm" %>
+           <% end %>
+         </td>
+       </tr>
+     </table>
+    </div>
+  </div>
+</div>
