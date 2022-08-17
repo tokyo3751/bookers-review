@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   end
 
   resources :groups, except:[:destroy] do
-    get "join" => "groups/join"
+    get "join" => "groups#join"
   end
 end
