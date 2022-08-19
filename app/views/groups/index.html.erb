@@ -13,10 +13,10 @@
         </tr>
         <% @groups.each do |group| %>
         <tr>
-          <td><%= image_tag group.image, size: "80x80" %></td>
+          <td><%= image_tag group.get_image, size: "80x80" %></td>
           <td><%= link_to group.name, group_path(group) %></td>
           <td><%= group.introduction %></td>
-          <td><%= group.users.count %></td>
+          <td><%= group.group_users.count %></td>
           <td>
             <% if group.owner_id == current_user.id %>
              <%= link_to "Edit", edit_group_path(group), class: "btn btn-sm btn-success" %>

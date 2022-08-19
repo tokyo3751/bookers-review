@@ -12,14 +12,14 @@
           <th></th>
         </tr>
        <tr>
-         <td><%= image_tag @group.image, size: "80x80" %></td>
+         <td><%= image_tag @group.get_image, size: "80x80" %></td>
          <td><%= @group.name %></td>
          <td><%= @group.introduction %></td>
          <td>
-            <%= @group.owner_id %>
+            <%= @group_owner.name %><br>
             <% @group.users.each do |user| %>
              <%= user.name %>
-            <% end %> 
+            <% end %>
          </td>
          <td>
            <% if @group.owner_id == current_user.id %>
