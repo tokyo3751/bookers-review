@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get 'search' => 'users#search'
   end
 
-  resources :groups, except:[:destroy] do
-    get "join" => "groups#join"
+  resources :groups do
+    resource :group_users, only: [:create, :destroy]
   end
 end

@@ -40,8 +40,7 @@ class GroupsController < ApplicationController
 
   def destroy
     @group = Group.find(params[:id])
-    #current_userは、@group.usersから消されるという記述。
-    @group.users.delete(current_user)
+    @group.destroy
     redirect_to groups_path
   end
 
