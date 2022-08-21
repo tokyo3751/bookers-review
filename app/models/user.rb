@@ -11,7 +11,7 @@ class User < ApplicationRecord
          has_many :user_rooms
          has_many :chats
          has_many :view_counts, dependent: :destroy
-         has_many :group_users
+         has_many :group_users, dependent: :destroy
     has_one_attached :profile_image
 
     validates :name, length: { in: 2..20 } , uniqueness: true
