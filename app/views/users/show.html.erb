@@ -20,9 +20,9 @@
             <td><%= book.body %></td>
             <td><%= render "books/count", book_detail: @book_detail %></p></td>
             <td>
-              <div id="star-rate<%= book.id%>"></div>
+              <div id="star-rate<%= book.id %>"></div>
               <script>
-                $('#star-rate<%= book.id%>').raty({
+                $('#star-rate<%= book.id %>').raty({
                   size      : 36,
                   starOff   : '<%= asset_path('star-off.png') %>',
                   starHalf  : '<%= asset_path('star-half.png') %>',
