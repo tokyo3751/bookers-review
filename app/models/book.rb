@@ -9,6 +9,10 @@ class Book < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
+  def self.search(search_word)
+    Book.where(['category LIKE ?', "#{search_word}"])
+  end
+
   has_one_attached :profile_image
 
   validates :title, presence: true
